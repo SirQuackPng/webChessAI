@@ -1,0 +1,1 @@
+console.log("Chess AI JavaScript loaded!");
