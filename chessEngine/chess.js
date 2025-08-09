@@ -40,8 +40,31 @@ const Board = {
             console.log(s)
         }
     },
-};
 
+    createEmpty() { // for testing 
+        this.board = [
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+        ];
+        this.canCastle = [true, true, true, true];
+        return this;
+    },
+    clone() {
+        let newBoard = Object.create(Board);
+
+        newBoard.board = this.board.map(row => [...row]);
+        newBoard.canCastle = this.canCastle.map(side => [...side]);
+    
+        return newBoard;
+    },
+};
+module.exports = Board;
 
 function main() {
     let board = Board.initialise();
